@@ -2,7 +2,7 @@
   "profiles": {
     "AddFrame": {
       "commandName": "Project",
-      "commandLineArgs": "D:\\Repos\\mocchiri-soft\\takeoff-into-azure\\articles\\images .\\output"
+      "commandLineArgs": "F:\\Repos\\mocchiri-soft\\takeoff-into-azure\\articles\\images .\\output"
     }
   }
 }

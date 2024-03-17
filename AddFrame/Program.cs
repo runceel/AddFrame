@@ -25,6 +25,7 @@ var images = Directory.GetFiles(input, "*.*", new EnumerationOptions { RecurseSu
 
 var line = new SKPaint
 {
+    Style = SKPaintStyle.Stroke,
     Color = SKColors.Black,
 };
 foreach (var image in images.Where(IsSupportedFileType))
@@ -33,8 +34,8 @@ foreach (var image in images.Where(IsSupportedFileType))
     using var sourceImage = SKBitmap.Decode(image);
     using var distImage = new SKBitmap(sourceImage.Width + 2, sourceImage.Height + 2);
     using var canvas = new SKCanvas(distImage);
-    canvas.DrawRect(0, 0, distImage.Width, distImage.Height, line);
-    canvas.DrawBitmap(sourceImage, 1.0f, 1.0f);
+    canvas.DrawRect(0, 0, distImage.Width - 1, distImage.Height - 1, line);
+    canvas.DrawBitmap(sourceImage, new SKRect(1, 1, distImage.Width - 2, distImage.Height - 2));
 
     var fullOutputPath = Path.GetFullPath(output);
     var outputFilePath = Path.Combine(fullOutputPath, relativePath);
